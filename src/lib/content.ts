@@ -1,91 +1,69 @@
-import {
-  Building2,
-  HeartPulse,
-  Wrench,
-  Factory,
-  Settings2,
-  Users,
-  HeartHandshake,
-  ShieldCheck,
-  type LucideIcon,
-} from "lucide-react";
-
 export const NAV_LINKS = [
-  { label: "About", href: "#thesis" },
+  { label: "About", href: "#about" },
   { label: "Focus", href: "#focus" },
   { label: "Approach", href: "#approach" },
-  { label: "Businesses", href: "#portfolio" },
+  { label: "Criteria", href: "#criteria" },
   { label: "Team", href: "#team" },
 ] as const;
 
-/** Values band — read as qualities, not vanity metrics. */
+/** Operating qualities, shown as a quiet stat row — not vanity metrics. */
 export const STATS = [
-  { value: "Permanent", label: "Built to own for the long term" },
-  { value: "Operators", label: "Hands-on, people-first ownership" },
+  { value: "Permanent", label: "We hold for the long term" },
+  { value: "Operator-led", label: "Hands-on, people-first ownership" },
   { value: "Essential", label: "Industries with durable demand" },
-  { value: "Aligned", label: "Patient, like-minded investors" },
+  { value: "Aligned", label: "Patient, like-minded capital" },
 ] as const;
 
 export interface Sector {
-  icon: LucideIcon;
   title: string;
   blurb: string;
 }
 
 export const SECTORS: Sector[] = [
   {
-    icon: Building2,
-    title: "Business & Industrial Services",
+    title: "Business & industrial services",
     blurb:
-      "Mission-critical services with recurring revenue, loyal customers, and the kind of steady demand that compounds over decades.",
+      "Mission-critical services with recurring revenue and the kind of steady demand that compounds over decades.",
   },
   {
-    icon: HeartPulse,
-    title: "Healthcare Services",
+    title: "Healthcare services",
     blurb:
-      "Care-delivery and support businesses where operational discipline and strong teams translate directly into better outcomes.",
+      "Care-delivery and support businesses where operational discipline and strong teams improve real outcomes.",
   },
   {
-    icon: Wrench,
-    title: "Home & Essential Services",
+    title: "Home & essential services",
     blurb:
-      "The trusted local and regional operators that families and businesses can't do without, year in and year out.",
+      "The trusted local and regional operators that families and businesses rely on, year in and year out.",
   },
   {
-    icon: Factory,
-    title: "Specialty Manufacturing & Distribution",
+    title: "Specialty manufacturing & distribution",
     blurb:
-      "Defensible niches with real moats — durable products, deep relationships, and consistent cash generation.",
+      "Defensible niches with durable products, deep relationships, and consistent cash generation.",
   },
 ];
 
 export interface Principle {
-  icon: LucideIcon;
   title: string;
   body: string;
 }
 
-/** "As owners, our role is to…" — straight from the operating philosophy. */
+/** "As owners, our role is to…" — drawn from the operating philosophy. */
 export const PRINCIPLES: Principle[] = [
   {
-    icon: Settings2,
     title: "Professionalize systems",
-    body: "We work alongside management to strengthen operations, sharpen reporting, and build the infrastructure a great business needs to scale.",
+    body: "We work alongside management to strengthen operations, sharpen reporting, and build the infrastructure a growing business needs.",
   },
   {
-    icon: Users,
-    title: "Develop & elevate leaders",
-    body: "People come first. We invest in the leadership teams already in place and bring in talent to help them reach the next level.",
+    title: "Develop and elevate leaders",
+    body: "People come first. We invest in the leaders already in place and add talent to help them reach the next level.",
   },
   {
-    icon: HeartHandshake,
-    title: "Preserve culture & legacy",
+    title: "Preserve culture and legacy",
     body: "The culture and reputation that made a business successful are assets we protect — not things we replace.",
   },
   {
-    icon: ShieldCheck,
     title: "Steward capital responsibly",
-    body: "Thoughtful growth over financial engineering. We hold for the long term and reinvest patiently, the way a true owner would.",
+    body: "Thoughtful growth over financial engineering. We hold for the long term and reinvest patiently, as a true owner would.",
   },
 ];
 
@@ -100,68 +78,55 @@ export const PROCESS: Step[] = [
   {
     step: "01",
     title: "An honest conversation",
-    body: "A confidential, no-pressure discussion about your business, your goals, and what the right next chapter looks like for you and your team.",
+    body: "A confidential, no-pressure discussion about your business, your goals, and the right next chapter for you and your team.",
   },
   {
     step: "02",
     title: "Diligence with respect",
-    body: "A straightforward, efficient process. We move quickly, keep things discreet, and treat your people and customers with care throughout.",
+    body: "A straightforward, efficient process. We move quickly, stay discreet, and treat your people and customers with care.",
   },
   {
     step: "03",
     title: "Fair, clean terms",
-    body: "A transparent offer built around a real long-term partnership — not a flip. We say what we mean and stand behind it.",
+    body: "A transparent offer built around a genuine long-term partnership — not a flip. We say what we mean and stand behind it.",
   },
   {
     step: "04",
-    title: "Stewardship for the long run",
-    body: "We become the permanent home for your business — preserving its culture, supporting its people, and growing it for decades.",
+    title: "A permanent home",
+    body: "We preserve your business's culture, support its people, and grow it patiently for the decades that follow.",
   },
 ];
 
-export interface Business {
-  name: string;
-  sector: string;
-  tag: string;
-  blurb: string;
+export interface Criterion {
+  title: string;
+  detail: string;
 }
 
-export const PORTFOLIO: Business[] = [
+/** What we look for — honest, concrete acquisition criteria. */
+export const CRITERIA: Criterion[] = [
   {
-    name: "Summit Mechanical",
-    sector: "Home & Essential Services",
-    tag: "Acquired · Operating",
-    blurb: "Regional HVAC and facilities-maintenance provider with 30 years of loyal commercial clients.",
+    title: "Consistently profitable",
+    detail: "Roughly $1M–$10M of EBITDA, with a multi-year record of steady earnings.",
   },
   {
-    name: "Cardinal Care Group",
-    sector: "Healthcare Services",
-    tag: "Acquired · Operating",
-    blurb: "Multi-site outpatient and home-health network serving communities across the Midwest.",
+    title: "Essential, durable demand",
+    detail: "Products and services customers depend on through every cycle.",
   },
   {
-    name: "Ironwood Industrial",
-    sector: "Specialty Manufacturing",
-    tag: "Acquired · Operating",
-    blurb: "Precision components manufacturer supplying defensible, mission-critical niches.",
+    title: "A strong team in place",
+    detail: "Capable leaders who want to keep building after a transition.",
   },
   {
-    name: "Meridian Facility Services",
-    sector: "Business Services",
-    tag: "Acquired · Operating",
-    blurb: "Recurring-revenue commercial services with deep, multi-decade customer relationships.",
+    title: "A defensible position",
+    detail: "Loyal customers, recurring revenue, or a real advantage in a niche.",
   },
   {
-    name: "Beacon Distribution",
-    sector: "Distribution",
-    tag: "Acquired · Operating",
-    blurb: "Specialty distributor with leading share in a fragmented, resilient end market.",
+    title: "An owner seeking the right home",
+    detail: "Founders and families who care where their business and people land.",
   },
   {
-    name: "Heartland Logistics",
-    sector: "Industrial Services",
-    tag: "Acquired · Operating",
-    blurb: "Asset-backed regional logistics operator with consistent demand and strong culture.",
+    title: "Based in North America",
+    detail: "With a soft spot for the Midwest and the communities we know best.",
   },
 ];
 
@@ -176,7 +141,7 @@ export const TEAM: Person[] = [
   {
     name: "Marcus Hale",
     role: "Founder & Managing Partner",
-    bio: "Operator and long-term owner who came up with the Wheaton Thunder. Spends his time alongside the leaders running our businesses.",
+    bio: "Operator and long-term owner who came up with the Wheaton Thunder. Spends his days alongside the leaders running our businesses.",
     initials: "MH",
   },
   {
@@ -188,25 +153,13 @@ export const TEAM: Person[] = [
   {
     name: "Daniel Okafor",
     role: "Partner, Acquisitions",
-    bio: "Leads sourcing and diligence. Known for treating selling owners and their teams with patience, candor, and respect.",
+    bio: "Leads sourcing and diligence, and is known for treating selling owners and their teams with patience and candor.",
     initials: "DO",
   },
   {
     name: "Sara Whitfield",
     role: "Partner, People & Culture",
-    bio: "Builds the leadership-development and talent programs that help each business strengthen the team that made it great.",
+    bio: "Builds the leadership and talent programs that help each business strengthen the team that made it great.",
     initials: "SW",
   },
 ];
-
-/** Moving values band shown beneath the hero. */
-export const VALUE_WORDS = [
-  "Permanent Capital",
-  "Operator-Led",
-  "People-First",
-  "Essential Industries",
-  "Durable Demand",
-  "Long-Term Stewardship",
-  "Strong Culture",
-  "Disciplined Operations",
-] as const;

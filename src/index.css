@@ -9,25 +9,17 @@
   }
 
   body {
-    font-feature-settings: "kern";
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     text-rendering: optimizeLegibility;
   }
 
-  /* Display headings use Oswald per the Enterprise type scale. */
-  h1,
-  h2,
-  h3,
-  h4 {
-    @apply font-display;
-  }
-
   ::selection {
-    @apply bg-accent-100 text-brand-900;
+    @apply bg-ink text-white;
   }
 
-  /* Visible, consistent focus for keyboard users (WCAG 2.2 AA). */
+  /* Visible, restrained focus for keyboard users (WCAG 2.2 AA). */
   :focus-visible {
-    @apply outline-none ring-2 ring-accent-600 ring-offset-2 ring-offset-surface;
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-surface;
   }
 }
 
@@ -36,38 +28,51 @@
     @apply mx-auto w-full max-w-content px-6 sm:px-8;
   }
 
-  /* Section label */
-  .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-md border border-accent-600/25 bg-accent-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent-700;
+  /* Editorial section label — quiet, not a colored pill. */
+  .label {
+    @apply inline-flex items-center gap-2.5 text-xs font-medium uppercase tracking-label text-ink-3;
   }
-  .eyebrow-on-dark {
-    @apply border-accent-400/40 bg-white/5 text-accent-400;
+  .label::before {
+    content: "";
+    @apply h-px w-6 bg-line-strong;
   }
 
-  /* Primary CTA — high-contrast dark text on brand orange */
+  .h-section {
+    @apply font-sans text-3xl font-medium tracking-tight text-ink sm:text-4xl;
+  }
+
+  .lede {
+    @apply text-lg leading-relaxed text-ink-2;
+  }
+
+  /* Primary action — solid ink, understated. */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-md bg-accent-500 px-6 py-3 text-sm font-semibold text-brand-900 shadow-sm transition-colors hover:bg-accent-400 focus-visible:ring-offset-surface active:bg-accent-600;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-ink px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-ink-2 active:bg-black;
   }
 
-  /* Secondary CTA on light surfaces */
+  /* Secondary action — hairline outline. */
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-md border-2 border-brand px-6 py-[10px] text-sm font-semibold text-brand transition-colors hover:bg-brand hover:text-white;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-line-strong bg-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-ink-3 hover:bg-surface-subtle;
   }
 
-  /* Secondary CTA on dark (brand) surfaces */
-  .btn-on-dark {
-    @apply inline-flex items-center justify-center gap-2 rounded-md border-2 border-white/40 px-6 py-[10px] text-sm font-semibold text-white transition-colors hover:bg-white hover:text-brand focus-visible:ring-offset-brand;
+  /* Tertiary — quiet text link with accent on hover. */
+  .btn-text {
+    @apply inline-flex items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-accent-600;
   }
 
   .card {
-    @apply rounded-xl border border-brand/10 bg-surface-card p-6 shadow-card transition-shadow duration-200;
+    @apply rounded-xl border border-line bg-surface p-6 transition-colors duration-200;
   }
 
   .field-label {
-    @apply mb-1.5 block text-sm font-medium text-ink;
+    @apply mb-1.5 block text-sm font-medium text-ink-2;
   }
 
   .field-input {
-    @apply w-full rounded-md border border-brand/20 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-muted transition-colors focus:border-brand focus-visible:ring-offset-white;
+    @apply w-full rounded-lg border border-line-strong bg-white px-3.5 py-2.5 text-sm text-ink transition-colors placeholder:text-ink-4 hover:border-ink-4 focus:border-accent;
+  }
+
+  .link-accent {
+    @apply font-medium text-accent-600 underline-offset-4 hover:underline;
   }
 }

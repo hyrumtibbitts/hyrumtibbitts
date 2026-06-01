@@ -1,54 +1,36 @@
-import { Linkedin } from "lucide-react";
-import Reveal from "./Reveal";
 import { TEAM } from "../lib/content";
 
 export default function Team() {
   return (
-    <section id="team" className="relative scroll-mt-20 py-24 sm:py-32">
+    <section id="team" className="scroll-mt-16 border-b border-line py-24 sm:py-28">
       <div className="container-px">
-        <div className="max-w-2xl">
-          <Reveal>
-            <span className="eyebrow">The team</span>
-            <h2 className="mt-6 font-display text-4xl font-bold tracking-tight text-brand sm:text-5xl">
-              Operators, not absentee owners.
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-ink-soft">
-              A people-first team that spends its days alongside the leaders
-              running our businesses — developing talent, sharpening operations,
-              and protecting what makes each company special.
-            </p>
-          </Reveal>
+        <div className="max-w-prose">
+          <span className="label">The team</span>
+          <h2 className="mt-5 h-section text-balance">
+            Operators, not absentee owners.
+          </h2>
+          <p className="lede mt-5">
+            A small, people-first team that spends its days alongside the leaders
+            running our businesses.
+          </p>
         </div>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {TEAM.map((person, i) => (
-            <Reveal key={person.name} delay={i * 0.08}>
-              <div className="card h-full">
-                <div className="flex items-center gap-4">
-                  <div className="grid h-14 w-14 place-items-center rounded-full bg-brand font-display text-lg font-bold text-accent-400">
-                    {person.initials}
-                  </div>
-                  <a
-                    href="#"
-                    aria-label={`${person.name} on LinkedIn`}
-                    className="ml-auto rounded-md text-ink-muted transition-colors hover:text-accent-600"
-                  >
-                    <Linkedin className="h-5 w-5" />
-                  </a>
-                </div>
-                <h3 className="mt-5 font-display text-lg font-semibold text-brand">
-                  {person.name}
-                </h3>
-                <p className="text-sm font-medium text-accent-700">
-                  {person.role}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                  {person.bio}
-                </p>
-              </div>
-            </Reveal>
+        <ul className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          {TEAM.map((person) => (
+            <li key={person.name}>
+              <span className="grid h-12 w-12 place-items-center rounded-full border border-line bg-surface-subtle text-sm font-medium text-ink-2">
+                {person.initials}
+              </span>
+              <h3 className="mt-5 font-medium tracking-tight text-ink">
+                {person.name}
+              </h3>
+              <p className="text-sm text-ink-3">{person.role}</p>
+              <p className="mt-3 text-sm leading-relaxed text-ink-2">
+                {person.bio}
+              </p>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

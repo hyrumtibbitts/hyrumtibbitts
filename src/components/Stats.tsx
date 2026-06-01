@@ -1,22 +1,22 @@
-import Reveal from "./Reveal";
 import { STATS } from "../lib/content";
 
 export default function Stats() {
   return (
-    <section className="border-b border-brand/10 bg-surface">
-      <div className="container-px grid grid-cols-2 gap-px overflow-hidden rounded-none border-x border-brand/10 bg-brand/10 lg:grid-cols-4">
-        {STATS.map((stat, i) => (
-          <Reveal key={stat.label} delay={i * 0.06}>
-            <div className="h-full bg-surface px-5 py-10 text-center">
-              <div className="font-display text-2xl font-bold uppercase tracking-tight text-brand sm:text-3xl">
+    <section className="border-b border-line bg-surface-subtle">
+      <div className="container-px">
+        <dl className="grid grid-cols-2 lg:grid-cols-4">
+          {STATS.map((stat) => (
+            <div
+              key={stat.value}
+              className="border-line px-2 py-8 text-center sm:py-10 lg:border-l lg:first:border-l-0"
+            >
+              <dt className="text-lg font-medium tracking-tight text-ink">
                 {stat.value}
-              </div>
-              <div className="mt-2 text-sm font-medium text-ink-soft">
-                {stat.label}
-              </div>
+              </dt>
+              <dd className="mt-1 text-sm text-ink-3">{stat.label}</dd>
             </div>
-          </Reveal>
-        ))}
+          ))}
+        </dl>
       </div>
     </section>
   );

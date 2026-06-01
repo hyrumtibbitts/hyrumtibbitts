@@ -5,49 +5,48 @@ operator-led **perpetual holding company** that acquires and grows
 high-quality, cash-flowing businesses in essential industries — and holds them
 for the long term.
 
-The visual design follows the **typeui.sh Enterprise design system** — a clean,
-high-contrast, accessible enterprise aesthetic — while carrying the firm's
-**Wheaton Thunder** heritage through the lightning mark and orange accent.
+The visual design follows the **typeui.sh Elegant design system** — minimal,
+near-monochrome, and typography-led — for a clean, genuine, high-end feel.
 
-## Design system (typeui.sh Enterprise)
+## Design system (typeui.sh Elegant)
 
+Restraint is the point: a near-monochrome palette carried by an ink/neutral
+text scale and hairline borders, with a single quiet accent used sparingly.
 Tokens live in `tailwind.config.js`:
 
 | Token | Value | Usage |
 | --- | --- | --- |
-| `brand` (primary) | `#072C2C` | Deep-teal panels, headings, footer |
-| `accent` (secondary) | `#FF5F03` | CTAs, eyebrows, links, highlights |
-| `surface` | `#EDEADE` | Page background |
-| `surface.card` | `#FFFFFF` | Cards, form fields |
-| `ink` | `#111827` | Body text |
+| `ink` (+ `2`/`3`/`4`) | `#111827` … `#9CA3AF` | Text hierarchy |
+| `line` (+ `strong`) | `#E5E7EB` / `#D1D5DB` | Hairline borders, dividers |
+| `surface` (+ `subtle`) | `#FFFFFF` / `#F7F8FA` | Page + alternating sections |
+| `accent` | `#3B82F6` | Links, focus rings, single indicators only |
 | `success`/`warning`/`danger` | `#16A34A` / `#D97706` / `#DC2626` | States |
 
-- **Type:** Oswald (display), Ubuntu (body), Ubuntu Mono (numerals/labels).
-- **Accessibility:** WCAG 2.2 AA targets — visible `:focus-visible` rings on all
-  interactive elements, ≥44px touch targets, and high-contrast text pairings
-  (e.g. dark text on the orange CTA rather than failing white-on-orange).
-- **Motion:** only a single purposeful fade-up on scroll; no looping/decorative
-  animation, per the design rules.
+- **Type:** Inter (standing in for Google Sans) on the 14/16/18/24/32/40 scale,
+  with Anonymous Pro for monospaced numerals. Hierarchy comes from weight and
+  spacing, not heavy bold.
+- **Accessibility:** WCAG 2.2 AA — visible `:focus-visible` rings on all
+  interactive elements, generous hit areas, and high-contrast text.
+- **Motion:** a single, subtle fade-up on the hero; nothing decorative.
 
 ## Tech stack
 
 - **Vite** + **React 18** + **TypeScript**
-- **Tailwind CSS** (Enterprise design tokens)
-- **Framer Motion** for the scroll-reveal entrance
-- **lucide-react** icons
+- **Tailwind CSS** (Elegant design tokens)
+- **lucide-react** icons (used sparingly, monochrome)
 
 ## Sections
 
 | Section | Purpose |
 | --- | --- |
-| Hero | Positioning: a perpetual holding company built to endure |
-| Values band | Permanent capital · operator-led · people-first · essential industries |
-| About | The firm's philosophy, adapted from its own words |
+| Hero | Positioning: a permanent home for good businesses |
+| Stats | A quiet row of operating qualities |
+| About | The firm's philosophy, in its own words |
 | Focus | The essential industries it concentrates on |
 | Approach | How it operates as an owner + a respectful acquisition process |
-| Businesses | A representative look at the Thunder family of companies |
+| Criteria | "What we look for" — honest, concrete acquisition criteria |
 | Team | The operators behind the firm |
-| Get in touch | A confidential contact form aimed at business owners |
+| Contact | A confidential contact form aimed at business owners |
 
 ## Getting started
 
@@ -62,6 +61,6 @@ npm run preview  # preview the production build
 
 - The contact form is front-end only and shows a confirmation on submit; wire it
   to your backend / CRM / email provider of choice when ready.
-- Company names, team members, metrics, and portfolio businesses are
-  illustrative placeholders. Replace `src/lib/content.ts` with real content.
-- All brand colors and fonts are defined in `tailwind.config.js`.
+- Team members and the email address are illustrative placeholders. Replace the
+  content in `src/lib/content.ts` with real details.
+- All design tokens and fonts are defined in `tailwind.config.js`.

@@ -4,65 +4,71 @@ export default {
   theme: {
     extend: {
       colors: {
-        // typeui.sh Enterprise design tokens
-        brand: {
-          DEFAULT: "#072C2C", // primary — deep teal
-          50: "#e7efef",
-          100: "#c4d6d6",
-          200: "#9bbaba",
-          600: "#0a3a3a",
-          700: "#072c2c",
-          800: "#052222",
-          900: "#041a1a",
+        // typeui.sh Elegant — minimal, near-monochrome with one quiet accent.
+        ink: {
+          DEFAULT: "#111827", // primary text
+          2: "#374151", // secondary text
+          3: "#6B7280", // muted text
+          4: "#9CA3AF", // faint / placeholder
         },
-        accent: {
-          DEFAULT: "#FF5F03", // secondary — orange
-          50: "#fff2e9",
-          100: "#ffdcc4",
-          400: "#ff7f33",
-          500: "#ff5f03",
-          600: "#e05303",
-          700: "#b84304",
+        line: {
+          DEFAULT: "#E5E7EB", // hairline borders
+          strong: "#D1D5DB",
         },
         surface: {
-          DEFAULT: "#EDEADE", // cream
-          card: "#FFFFFF",
-          sunken: "#E3DFCF",
+          DEFAULT: "#FFFFFF",
+          subtle: "#F7F8FA", // alternating sections
         },
-        ink: {
-          DEFAULT: "#111827", // text
-          soft: "#3f4654",
-          muted: "#6b7280",
+        accent: {
+          DEFAULT: "#3B82F6",
+          600: "#2563EB",
+          50: "#EFF6FF",
         },
         success: "#16A34A",
         warning: "#D97706",
         danger: "#DC2626",
       },
       fontFamily: {
-        sans: ["Ubuntu", "ui-sans-serif", "system-ui", "Segoe UI", "Roboto", "Arial", "sans-serif"],
-        display: ["Oswald", "Ubuntu", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["'Ubuntu Mono'", "ui-monospace", "SFMono-Regular", "monospace"],
+        sans: [
+          "Inter",
+          '"Google Sans"',
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Arial",
+          "sans-serif",
+        ],
+        mono: ['"Anonymous Pro"', "ui-monospace", "SFMono-Regular", "monospace"],
+      },
+      fontSize: {
+        // Elegant type scale: 14 / 16 / 18 / 24 / 32 / 40
+        xs: ["0.8125rem", { lineHeight: "1.25rem" }], // 13
+        sm: ["0.875rem", { lineHeight: "1.375rem" }], // 14
+        base: ["1rem", { lineHeight: "1.6rem" }], // 16
+        lg: ["1.125rem", { lineHeight: "1.75rem" }], // 18
+        xl: ["1.25rem", { lineHeight: "1.8rem" }], // 20
+        "2xl": ["1.5rem", { lineHeight: "1.9rem" }], // 24
+        "3xl": ["2rem", { lineHeight: "2.3rem" }], // 32
+        "4xl": ["2.5rem", { lineHeight: "2.7rem" }], // 40
+        "5xl": ["3.25rem", { lineHeight: "1.05" }], // 52 (hero)
       },
       maxWidth: {
-        content: "1200px",
+        content: "1120px",
+        prose: "640px",
+      },
+      letterSpacing: {
+        label: "0.14em",
       },
       keyframes: {
-        // Purposeful, subtle entrance only — no decorative looping motion.
         "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(16px)" },
+          "0%": { opacity: "0", transform: "translateY(12px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
       animation: {
-        "fade-up": "fade-up 0.6s ease-out both",
-      },
-      backgroundImage: {
-        "grid-brand":
-          "linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)",
-      },
-      boxShadow: {
-        card: "0 1px 2px rgba(7,44,44,0.04), 0 8px 24px -12px rgba(7,44,44,0.18)",
-        "card-hover": "0 2px 4px rgba(7,44,44,0.06), 0 16px 40px -16px rgba(7,44,44,0.28)",
+        "fade-up": "fade-up 0.6s cubic-bezier(0.22,1,0.36,1) both",
       },
     },
   },
