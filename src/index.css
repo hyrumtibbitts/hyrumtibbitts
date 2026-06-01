@@ -9,17 +9,17 @@
   }
 
   body {
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-feature-settings: "cv02", "cv03", "cv11";
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    @apply bg-ink text-white;
+    @apply bg-navy text-white;
   }
 
-  /* Visible, restrained focus for keyboard users (WCAG 2.2 AA). */
+  /* Visible focus for keyboard users (WCAG 2.2 AA). */
   :focus-visible {
-    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-surface;
+    @apply outline-none ring-2 ring-orange-600 ring-offset-2 ring-offset-surface;
   }
 }
 
@@ -28,40 +28,51 @@
     @apply mx-auto w-full max-w-content px-6 sm:px-8;
   }
 
-  /* Editorial section label — quiet, not a colored pill. */
+  /* Editorial section label with a short orange rule. */
   .label {
-    @apply inline-flex items-center gap-2.5 text-xs font-medium uppercase tracking-label text-ink-3;
+    @apply inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-label text-orange-600;
   }
   .label::before {
     content: "";
-    @apply h-px w-6 bg-line-strong;
+    @apply h-px w-7 bg-orange-500;
+  }
+  .label-on-navy {
+    @apply text-orange-300;
+  }
+  .label-on-navy::before {
+    @apply bg-orange-400;
   }
 
+  /* Serif display headings — warmth and character. */
   .h-section {
-    @apply font-sans text-3xl font-medium tracking-tight text-ink sm:text-4xl;
+    @apply font-display text-3xl font-medium leading-tight tracking-tight text-ink sm:text-4xl;
   }
 
   .lede {
     @apply text-lg leading-relaxed text-ink-2;
   }
 
-  /* Primary action — solid ink, understated. */
+  /* Primary action — Wheaton orange. */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-ink px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-ink-2 active:bg-black;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-orange-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-orange-700 active:bg-orange-700;
   }
 
-  /* Secondary action — hairline outline. */
+  /* Secondary on cream. */
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-line-strong bg-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-ink-3 hover:bg-surface-subtle;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-line-strong bg-surface-card px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-navy hover:text-navy;
   }
 
-  /* Tertiary — quiet text link with accent on hover. */
+  /* Secondary on navy surfaces. */
+  .btn-on-navy {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/25 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-navy focus-visible:ring-offset-navy;
+  }
+
   .btn-text {
-    @apply inline-flex items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-accent-600;
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors hover:text-orange-700;
   }
 
   .card {
-    @apply rounded-xl border border-line bg-surface p-6 transition-colors duration-200;
+    @apply rounded-xl border border-line bg-surface-card p-6 shadow-card transition-shadow duration-200;
   }
 
   .field-label {
@@ -69,10 +80,10 @@
   }
 
   .field-input {
-    @apply w-full rounded-lg border border-line-strong bg-white px-3.5 py-2.5 text-sm text-ink transition-colors placeholder:text-ink-4 hover:border-ink-4 focus:border-accent;
+    @apply w-full rounded-lg border border-line-strong bg-surface-card px-3.5 py-2.5 text-sm text-ink transition-colors placeholder:text-ink-4 hover:border-ink-4 focus:border-orange-500;
   }
 
   .link-accent {
-    @apply font-medium text-accent-600 underline-offset-4 hover:underline;
+    @apply font-medium text-orange-700 underline-offset-4 hover:underline;
   }
 }

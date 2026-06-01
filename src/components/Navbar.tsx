@@ -16,8 +16,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b bg-surface/85 backdrop-blur transition-colors duration-200 ${
-        scrolled ? "border-line" : "border-transparent"
+      className={`fixed inset-x-0 top-0 z-50 border-b bg-surface transition-colors duration-200 ${
+        scrolled ? "border-line shadow-sm" : "border-transparent"
       }`}
     >
       <nav className="container-px flex h-16 items-center justify-between">

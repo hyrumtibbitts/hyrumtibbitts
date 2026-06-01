@@ -3,25 +3,18 @@ interface LogoProps {
   tone?: "light" | "dark"; // surface the logo sits on
 }
 
-/** Restrained wordmark with a small geometric mark. */
+/** Orange lightning mark + serif wordmark. */
 export default function Logo({ className = "", tone = "light" }: LogoProps) {
-  const text = tone === "dark" ? "text-white" : "text-ink";
-  const mark = tone === "dark" ? "border-white/40" : "border-ink";
+  const text = tone === "dark" ? "text-white" : "text-navy";
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <span
-        className={`grid h-6 w-6 place-items-center rounded-[5px] border ${mark}`}
-        aria-hidden
-      >
-        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none">
-          <path
-            d="M13 3 7 13h4l-1 8 7-11h-4l2-7z"
-            fill="currentColor"
-            className={text}
-          />
-        </svg>
-      </span>
-      <span className={`text-[15px] font-semibold tracking-tight ${text}`}>
+      <svg viewBox="0 0 24 24" className="h-[26px] w-[26px]" aria-hidden>
+        <path
+          d="M14 2.5 6.5 13.2H11l-1.4 8.3L18 10.4h-4.6L15.6 2.5z"
+          fill="#D1501F"
+        />
+      </svg>
+      <span className={`font-display text-xl font-semibold tracking-tight ${text}`}>
         Thunder Capital
       </span>
     </span>

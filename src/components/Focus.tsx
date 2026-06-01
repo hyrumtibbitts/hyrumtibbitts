@@ -17,11 +17,14 @@ export default function Focus() {
 
         <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2">
           {SECTORS.map((sector, i) => (
-            <div key={sector.title} className="bg-surface p-7 sm:p-8">
-              <span className="font-mono text-sm text-ink-4">
+            <div
+              key={sector.title}
+              className="group bg-surface-card p-7 transition-colors hover:bg-surface sm:p-8"
+            >
+              <span className="font-display text-2xl font-medium text-orange-500">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-3 text-lg font-medium tracking-tight text-ink">
+              <h3 className="mt-3 font-display text-xl font-medium tracking-tight text-navy">
                 {sector.title}
               </h3>
               <p className="mt-2 leading-relaxed text-ink-2">{sector.blurb}</p>

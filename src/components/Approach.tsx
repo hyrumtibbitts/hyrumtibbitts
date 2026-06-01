@@ -19,7 +19,7 @@ export default function Approach() {
         <div className="mt-14 grid gap-x-12 gap-y-10 sm:grid-cols-2">
           {PRINCIPLES.map((p) => (
             <div key={p.title} className="border-t border-line pt-6">
-              <h3 className="text-lg font-medium tracking-tight text-ink">
+              <h3 className="font-display text-xl font-medium tracking-tight text-navy">
                 {p.title}
               </h3>
               <p className="mt-2 leading-relaxed text-ink-2">{p.body}</p>
@@ -29,15 +29,17 @@ export default function Approach() {
 
         {/* Process */}
         <div className="mt-20 max-w-prose">
-          <h3 className="text-2xl font-medium tracking-tight text-ink">
+          <h3 className="font-display text-2xl font-medium tracking-tight text-navy">
             A transition that honors what you built.
           </h3>
         </div>
         <ol className="mt-10 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {PROCESS.map((s) => (
-            <li key={s.step} className="border-t border-ink pt-5">
-              <span className="font-mono text-sm text-ink-3">{s.step}</span>
-              <h4 className="mt-3 font-medium tracking-tight text-ink">
+            <li key={s.step} className="border-t-2 border-navy pt-5">
+              <span className="font-display text-2xl font-medium text-orange-500">
+                {s.step}
+              </span>
+              <h4 className="mt-2 font-display text-lg font-medium tracking-tight text-navy">
                 {s.title}
               </h4>
               <p className="mt-2 text-sm leading-relaxed text-ink-2">{s.body}</p>

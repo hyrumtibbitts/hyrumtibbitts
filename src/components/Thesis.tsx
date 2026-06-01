@@ -27,14 +27,15 @@ export default function Thesis() {
             </p>
           </div>
 
-          <figure className="mt-10 border-t border-line pt-8">
-            <blockquote className="text-balance text-2xl font-medium leading-snug tracking-tight text-ink">
+          <figure className="mt-10 border-l-2 border-orange-500 pl-6">
+            <blockquote className="text-balance font-display text-2xl font-medium italic leading-snug tracking-tight text-navy">
               “We prioritize thoughtful growth, operational excellence, and
               responsible stewardship of capital — partnering with people who
               want to be part of something bigger than themselves.”
             </blockquote>
             <figcaption className="mt-4 text-sm text-ink-3">
-              Marcus Hale · Founder &amp; Managing Partner
+              <span className="font-medium text-ink">Marcus Hale</span> · Founder
+              &amp; Managing Partner
             </figcaption>
           </figure>
         </div>

@@ -8,12 +8,13 @@ export default function Stats() {
           {STATS.map((stat) => (
             <div
               key={stat.value}
-              className="border-line px-2 py-8 text-center sm:py-10 lg:border-l lg:first:border-l-0"
+              className="border-line px-4 py-9 text-center sm:py-11 lg:border-l lg:first:border-l-0"
             >
-              <dt className="text-lg font-medium tracking-tight text-ink">
+              <span className="mx-auto mb-3 block h-1 w-6 rounded-full bg-orange-500" aria-hidden />
+              <dt className="font-display text-xl font-medium tracking-tight text-navy">
                 {stat.value}
               </dt>
-              <dd className="mt-1 text-sm text-ink-3">{stat.label}</dd>
+              <dd className="mt-1.5 text-sm text-ink-3">{stat.label}</dd>
             </div>
           ))}
         </dl>

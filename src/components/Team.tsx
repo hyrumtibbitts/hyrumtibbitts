@@ -18,13 +18,13 @@ export default function Team() {
         <ul className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
           {TEAM.map((person) => (
             <li key={person.name}>
-              <span className="grid h-12 w-12 place-items-center rounded-full border border-line bg-surface-subtle text-sm font-medium text-ink-2">
+              <span className="grid h-12 w-12 place-items-center rounded-full bg-navy font-display text-sm font-medium text-white ring-2 ring-orange-500/30 ring-offset-2 ring-offset-surface">
                 {person.initials}
               </span>
-              <h3 className="mt-5 font-medium tracking-tight text-ink">
+              <h3 className="mt-5 font-display text-lg font-medium tracking-tight text-navy">
                 {person.name}
               </h3>
-              <p className="text-sm text-ink-3">{person.role}</p>
+              <p className="text-sm font-medium text-orange-700">{person.role}</p>
               <p className="mt-3 text-sm leading-relaxed text-ink-2">
                 {person.bio}
               </p>

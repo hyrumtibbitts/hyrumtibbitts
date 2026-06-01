@@ -11,21 +11,24 @@ export default function Pitch() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-16 py-24 sm:py-28">
+    <section id="contact" className="scroll-mt-16 bg-navy py-24 text-white sm:py-28">
       <div className="container-px grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
-          <span className="label">For business owners</span>
-          <h2 className="mt-5 h-section text-balance">
+          <span className="label label-on-navy">For business owners</span>
+          <h2 className="mt-5 text-balance font-display text-3xl font-medium leading-tight tracking-tight sm:text-4xl">
             Thinking about your next chapter?
           </h2>
-          <p className="lede mt-5 max-w-md">
+          <p className="mt-5 max-w-md text-lg leading-relaxed text-navy-100">
             If you've built a great business and care about where it goes next,
             we'd value a conversation. Every one is confidential, and there's no
             pressure.
           </p>
-          <p className="mt-6 text-sm text-ink-3">
+          <p className="mt-6 text-sm text-navy-200">
             Prefer email?{" "}
-            <a href="mailto:hello@thundercap.co" className="link-accent">
+            <a
+              href="mailto:hello@thundercap.co"
+              className="font-medium text-orange-300 underline-offset-4 hover:underline focus-visible:ring-offset-navy"
+            >
               hello@thundercap.co
             </a>
           </p>
@@ -33,10 +36,10 @@ export default function Pitch() {
 
         <div className="lg:col-span-7">
           {sent ? (
-            <div className="flex items-start gap-4 rounded-xl border border-line bg-surface-subtle p-8">
-              <Check className="mt-0.5 h-6 w-6 shrink-0 text-success" aria-hidden />
+            <div className="flex items-start gap-4 rounded-xl bg-surface-card p-8 text-ink">
+              <Check className="mt-0.5 h-6 w-6 shrink-0 text-orange-500" aria-hidden />
               <div>
-                <h3 className="text-lg font-medium tracking-tight text-ink">
+                <h3 className="font-display text-xl font-medium tracking-tight text-navy">
                   Thank you — we've received it.
                 </h3>
                 <p className="mt-1.5 leading-relaxed text-ink-2">
@@ -48,7 +51,7 @@ export default function Pitch() {
           ) : (
             <form
               onSubmit={onSubmit}
-              className="rounded-xl border border-line p-6 sm:p-8"
+              className="rounded-xl bg-surface-card p-6 text-ink shadow-card sm:p-8"
             >
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field label="Your name" name="name" placeholder="Jane Owner" />

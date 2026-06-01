@@ -5,35 +5,37 @@ operator-led **perpetual holding company** that acquires and grows
 high-quality, cash-flowing businesses in essential industries — and holds them
 for the long term.
 
-The visual design follows the **typeui.sh Elegant design system** — minimal,
-near-monochrome, and typography-led — for a clean, genuine, high-end feel.
+The visual design pairs the **typeui.sh Elegant** foundation (typography-led,
+generous whitespace, hairline detailing) with the **Wheaton Thunder** identity —
+authentic navy and orange — for a warm, genuine, established feel. Deep-navy
+hero and footer bookend a warm cream center, with Wheaton orange threaded
+through as the accent.
 
-## Design system (typeui.sh Elegant)
+## Design system
 
-Restraint is the point: a near-monochrome palette carried by an ink/neutral
-text scale and hairline borders, with a single quiet accent used sparingly.
 Tokens live in `tailwind.config.js`:
 
 | Token | Value | Usage |
 | --- | --- | --- |
-| `ink` (+ `2`/`3`/`4`) | `#111827` … `#9CA3AF` | Text hierarchy |
-| `line` (+ `strong`) | `#E5E7EB` / `#D1D5DB` | Hairline borders, dividers |
-| `surface` (+ `subtle`) | `#FFFFFF` / `#F7F8FA` | Page + alternating sections |
-| `accent` | `#3B82F6` | Links, focus rings, single indicators only |
+| `navy` (+ shades) | `#192C4E` | Wheaton navy — hero, contact, footer, headings |
+| `orange` (+ shades) | `#D1501F` | Wheaton orange — CTAs, accents, links, marks |
+| `surface` (+ `subtle`/`card`) | `#FBF8F3` / `#F3EDE2` / `#FFFFFF` | Warm cream ground + cards |
+| `ink` (+ `2`/`3`/`4`) | `#1B2A41` … `#9AA6B2` | Text hierarchy |
+| `line` (+ `strong`) | `#E8E0D3` / `#D8CDBB` | Warm hairlines |
 | `success`/`warning`/`danger` | `#16A34A` / `#D97706` / `#DC2626` | States |
 
-- **Type:** Inter (standing in for Google Sans) on the 14/16/18/24/32/40 scale,
-  with Anonymous Pro for monospaced numerals. Hierarchy comes from weight and
-  spacing, not heavy bold.
-- **Accessibility:** WCAG 2.2 AA — visible `:focus-visible` rings on all
-  interactive elements, generous hit areas, and high-contrast text.
+- **Type:** Fraunces (serif) for display headings — warmth and character — with
+  Inter for body, on the 14/16/18/24/32/40 scale.
+- **Accessibility:** WCAG 2.2 AA — visible `:focus-visible` rings, generous hit
+  areas, accessible text/background pairings (e.g. `orange-600` fills carry
+  white text; small orange text uses `orange-700` on cream).
 - **Motion:** a single, subtle fade-up on the hero; nothing decorative.
 
 ## Tech stack
 
 - **Vite** + **React 18** + **TypeScript**
-- **Tailwind CSS** (Elegant design tokens)
-- **lucide-react** icons (used sparingly, monochrome)
+- **Tailwind CSS** (Wheaton design tokens)
+- **lucide-react** icons (used sparingly)
 
 ## Sections
 
