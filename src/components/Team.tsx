@@ -9,10 +9,10 @@ export default function Team() {
         <div className="max-w-2xl">
           <Reveal>
             <span className="eyebrow">The team</span>
-            <h2 className="mt-6 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 className="mt-6 font-display text-4xl font-bold tracking-tight text-brand sm:text-5xl">
               Operators, not absentee owners.
             </h2>
-            <p className="mt-5 text-lg leading-relaxed text-slate-400">
+            <p className="mt-5 text-lg leading-relaxed text-ink-soft">
               A people-first team that spends its days alongside the leaders
               running our businesses — developing talent, sharpening operations,
               and protecting what makes each company special.
@@ -25,24 +25,24 @@ export default function Team() {
             <Reveal key={person.name} delay={i * 0.08}>
               <div className="card h-full">
                 <div className="flex items-center gap-4">
-                  <div className="grid h-14 w-14 place-items-center rounded-full bg-gradient-to-br from-thunder-500 to-storm-600 font-display text-lg font-bold text-white">
+                  <div className="grid h-14 w-14 place-items-center rounded-full bg-brand font-display text-lg font-bold text-accent-400">
                     {person.initials}
                   </div>
                   <a
                     href="#"
                     aria-label={`${person.name} on LinkedIn`}
-                    className="ml-auto text-slate-500 transition hover:text-thunder-400"
+                    className="ml-auto rounded-md text-ink-muted transition-colors hover:text-accent-600"
                   >
                     <Linkedin className="h-5 w-5" />
                   </a>
                 </div>
-                <h3 className="mt-5 font-display text-lg font-semibold text-white">
+                <h3 className="mt-5 font-display text-lg font-semibold text-brand">
                   {person.name}
                 </h3>
-                <p className="text-sm font-medium text-thunder-400">
+                <p className="text-sm font-medium text-accent-700">
                   {person.role}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-slate-400">
+                <p className="mt-3 text-sm leading-relaxed text-ink-soft">
                   {person.bio}
                 </p>
               </div>

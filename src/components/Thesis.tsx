@@ -8,13 +8,13 @@ export default function Thesis() {
         <div className="lg:col-span-5">
           <Reveal>
             <span className="eyebrow">About Thunder Capital</span>
-            <h2 className="mt-6 font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
+            <h2 className="mt-6 font-display text-4xl font-bold leading-tight tracking-tight text-brand sm:text-5xl">
               Built for the long term. Built to endure.
             </h2>
           </Reveal>
         </div>
 
-        <div className="space-y-6 text-lg leading-relaxed text-slate-300 lg:col-span-7">
+        <div className="space-y-6 text-lg leading-relaxed text-ink-soft lg:col-span-7">
           <Reveal delay={0.05}>
             <p>
               Thunder Capital is a perpetual holding company focused on
@@ -35,14 +35,14 @@ export default function Thesis() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <figure className="mt-10 rounded-2xl border-l-2 border-thunder-500 bg-white/[0.03] p-6">
-              <Quote className="h-6 w-6 text-thunder-400" />
-              <blockquote className="mt-3 font-display text-xl font-semibold leading-snug text-white">
+            <figure className="mt-10 rounded-xl border border-brand/10 border-l-4 border-l-accent-500 bg-surface-card p-6 shadow-card">
+              <Quote className="h-6 w-6 text-accent-600" />
+              <blockquote className="mt-3 font-display text-xl font-semibold leading-snug text-brand">
                 "We prioritize thoughtful growth, operational excellence, and
                 responsible stewardship of capital — partnering with people who
                 want to be part of something bigger than themselves."
               </blockquote>
-              <figcaption className="mt-4 text-sm text-slate-400">
+              <figcaption className="mt-4 text-sm text-ink-muted">
                 Marcus Hale, Founder &amp; Managing Partner
               </figcaption>
             </figure>

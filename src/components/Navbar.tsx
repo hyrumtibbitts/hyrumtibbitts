@@ -16,14 +16,14 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-200 ${
         scrolled
-          ? "border-b border-white/10 bg-ink-950/80 backdrop-blur-xl"
-          : "border-b border-transparent"
+          ? "border-brand/10 bg-surface/90 backdrop-blur"
+          : "border-transparent bg-surface"
       }`}
     >
       <nav className="container-px flex h-16 items-center justify-between">
-        <a href="#top" className="shrink-0" aria-label="Thunder Capital home">
+        <a href="#top" className="shrink-0 rounded-md" aria-label="Thunder Capital home">
           <Logo />
         </a>
 
@@ -32,7 +32,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-slate-300 transition hover:text-white"
+              className="rounded-md text-sm font-medium text-ink-soft transition-colors hover:text-brand"
             >
               {link.label}
             </a>
@@ -46,9 +46,9 @@ export default function Navbar() {
         </div>
 
         <button
-          className="grid h-10 w-10 place-items-center rounded-lg border border-white/10 text-slate-200 md:hidden"
+          className="grid h-11 w-11 place-items-center rounded-md border border-brand/15 text-brand md:hidden"
           onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -56,14 +56,14 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-white/10 bg-ink-950/95 backdrop-blur-xl md:hidden">
+        <div className="border-t border-brand/10 bg-surface md:hidden">
           <div className="container-px flex flex-col gap-1 py-4">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3 text-base font-medium text-slate-200 transition hover:bg-white/5"
+                className="rounded-md px-3 py-3 text-base font-medium text-ink transition-colors hover:bg-surface-sunken"
               >
                 {link.label}
               </a>

@@ -1,22 +1,24 @@
 import { VALUE_WORDS } from "../lib/content";
 
+/** Static, high-contrast values band (no looping motion, per design rules). */
 export default function Marquee() {
-  const row = [...VALUE_WORDS, ...VALUE_WORDS];
   return (
-    <section className="border-y border-white/10 bg-ink-950 py-10">
-      <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_12%,#000_88%,transparent)]">
-        <div className="flex w-max animate-marquee items-center gap-10 pr-10">
-          {row.map((word, i) => (
-            <span key={`${word}-${i}`} className="flex items-center gap-10">
-              <span className="whitespace-nowrap font-display text-lg font-semibold text-slate-400/80">
+    <section className="bg-brand py-10 text-white">
+      <div className="container-px">
+        <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3 text-sm font-medium">
+          {VALUE_WORDS.map((word, i) => (
+            <li key={word} className="flex items-center gap-3">
+              {i > 0 && (
+                <span className="text-accent-400" aria-hidden>
+                  &#47;
+                </span>
+              )}
+              <span className="rounded-md bg-white/5 px-3 py-1.5 text-brand-100">
                 {word}
               </span>
-              <span className="text-thunder-500/60" aria-hidden>
-                &#9889;
-              </span>
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

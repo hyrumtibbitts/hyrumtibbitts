@@ -21,7 +21,7 @@ export const NAV_LINKS = [
 /** Values band — read as qualities, not vanity metrics. */
 export const STATS = [
   { value: "Permanent", label: "Built to own for the long term" },
-  { value: "Operator-led", label: "Hands-on, people-first ownership" },
+  { value: "Operators", label: "Hands-on, people-first ownership" },
   { value: "Essential", label: "Industries with durable demand" },
   { value: "Aligned", label: "Patient, like-minded investors" },
 ] as const;

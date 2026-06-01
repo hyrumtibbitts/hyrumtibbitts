@@ -3,37 +3,31 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    color-scheme: dark;
-  }
-
   html,
   body {
-    @apply bg-ink-950 text-slate-200 antialiased;
+    @apply bg-surface text-ink antialiased;
   }
 
   body {
-    font-feature-settings: "ss01", "cv01", "cv11";
+    font-feature-settings: "kern";
     text-rendering: optimizeLegibility;
   }
 
-  ::selection {
-    @apply bg-thunder-500/30 text-white;
+  /* Display headings use Oswald per the Enterprise type scale. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
   }
 
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 10px;
+  ::selection {
+    @apply bg-accent-100 text-brand-900;
   }
-  ::-webkit-scrollbar-track {
-    background: #05070d;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #1f2740;
-    border-radius: 9999px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #2f3a5c;
+
+  /* Visible, consistent focus for keyboard users (WCAG 2.2 AA). */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent-600 ring-offset-2 ring-offset-surface;
   }
 }
 
@@ -42,23 +36,38 @@
     @apply mx-auto w-full max-w-content px-6 sm:px-8;
   }
 
+  /* Section label */
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-thunder-300;
+    @apply inline-flex items-center gap-2 rounded-md border border-accent-600/25 bg-accent-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent-700;
+  }
+  .eyebrow-on-dark {
+    @apply border-accent-400/40 bg-white/5 text-accent-400;
   }
 
+  /* Primary CTA — high-contrast dark text on brand orange */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-thunder-500 px-6 py-3 text-sm font-semibold text-white shadow-[0_8px_30px_-8px_rgba(242,92,10,0.7)] transition hover:bg-thunder-400 hover:shadow-[0_12px_40px_-8px_rgba(242,92,10,0.9)] focus:outline-none focus-visible:ring-2 focus-visible:ring-thunder-300 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950;
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-accent-500 px-6 py-3 text-sm font-semibold text-brand-900 shadow-sm transition-colors hover:bg-accent-400 focus-visible:ring-offset-surface active:bg-accent-600;
   }
 
-  .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-white/30 hover:bg-white/[0.07] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40;
+  /* Secondary CTA on light surfaces */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border-2 border-brand px-6 py-[10px] text-sm font-semibold text-brand transition-colors hover:bg-brand hover:text-white;
+  }
+
+  /* Secondary CTA on dark (brand) surfaces */
+  .btn-on-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border-2 border-white/40 px-6 py-[10px] text-sm font-semibold text-white transition-colors hover:bg-white hover:text-brand focus-visible:ring-offset-brand;
   }
 
   .card {
-    @apply rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.015] p-6 backdrop-blur-sm;
+    @apply rounded-xl border border-brand/10 bg-surface-card p-6 shadow-card transition-shadow duration-200;
   }
 
-  .gradient-text {
-    @apply bg-gradient-to-r from-thunder-300 via-thunder-400 to-storm-300 bg-clip-text text-transparent;
+  .field-label {
+    @apply mb-1.5 block text-sm font-medium text-ink;
+  }
+
+  .field-input {
+    @apply w-full rounded-md border border-brand/20 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-muted transition-colors focus:border-brand focus-visible:ring-offset-white;
   }
 }

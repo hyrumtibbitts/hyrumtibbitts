@@ -5,14 +5,35 @@ operator-led **perpetual holding company** that acquires and grows
 high-quality, cash-flowing businesses in essential industries — and holds them
 for the long term.
 
-The design leans into the firm's **Wheaton Thunder** heritage with an electric
-orange-and-navy palette, a lightning motif, and a clean, dark, modern aesthetic.
+The visual design follows the **typeui.sh Enterprise design system** — a clean,
+high-contrast, accessible enterprise aesthetic — while carrying the firm's
+**Wheaton Thunder** heritage through the lightning mark and orange accent.
+
+## Design system (typeui.sh Enterprise)
+
+Tokens live in `tailwind.config.js`:
+
+| Token | Value | Usage |
+| --- | --- | --- |
+| `brand` (primary) | `#072C2C` | Deep-teal panels, headings, footer |
+| `accent` (secondary) | `#FF5F03` | CTAs, eyebrows, links, highlights |
+| `surface` | `#EDEADE` | Page background |
+| `surface.card` | `#FFFFFF` | Cards, form fields |
+| `ink` | `#111827` | Body text |
+| `success`/`warning`/`danger` | `#16A34A` / `#D97706` / `#DC2626` | States |
+
+- **Type:** Oswald (display), Ubuntu (body), Ubuntu Mono (numerals/labels).
+- **Accessibility:** WCAG 2.2 AA targets — visible `:focus-visible` rings on all
+  interactive elements, ≥44px touch targets, and high-contrast text pairings
+  (e.g. dark text on the orange CTA rather than failing white-on-orange).
+- **Motion:** only a single purposeful fade-up on scroll; no looping/decorative
+  animation, per the design rules.
 
 ## Tech stack
 
 - **Vite** + **React 18** + **TypeScript**
-- **Tailwind CSS** (custom Thunder brand theme)
-- **Framer Motion** for scroll-reveal animations
+- **Tailwind CSS** (Enterprise design tokens)
+- **Framer Motion** for the scroll-reveal entrance
 - **lucide-react** icons
 
 ## Sections
