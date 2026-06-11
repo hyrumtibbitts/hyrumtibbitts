@@ -18,17 +18,73 @@ export interface TranscribeOptions {
 }
 
 /**
- * The transcription interface. Swap implementations (Deepgram / Whisper / …)
- * without touching callers. `transcribe()` picks the configured provider.
+ * The transcription interface. Swap implementations (OpenAI / Deepgram / …)
+ * without touching callers. `getTranscriber()` picks the configured provider.
  */
 export interface Transcriber {
   transcribe(audio: ArrayBuffer, opts?: TranscribeOptions): Promise<TranscribeResult>;
 }
 
+function extFor(mime: string): string {
+  if (mime.includes("mp4")) return "mp4";
+  if (mime.includes("ogg")) return "ogg";
+  if (mime.includes("wav")) return "wav";
+  if (mime.includes("mpeg") || mime.includes("mp3")) return "mp3";
+  return "webm";
+}
+
 /**
- * Deepgram transcriber with keyword boosting for domain jargon.
- * Preferred engine — board numbers, error codes and acronyms transcribe far
- * better with the glossary boosted.
+ * OpenAI Whisper transcriber. Biases spelling toward domain jargon via the
+ * `prompt` parameter (Whisper's analog of keyword boosting) so board numbers,
+ * error codes, and acronyms transcribe better.
+ */
+class OpenAITranscriber implements Transcriber {
+  constructor(
+    private apiKey: string,
+    private model: string = "whisper-1",
+  ) {}
+
+  async transcribe(
+    audio: ArrayBuffer,
+    opts: TranscribeOptions = {},
+  ): Promise<TranscribeResult> {
+    const mime = opts.mimeType || "audio/webm";
+    const keywords = opts.keywords ?? DOMAIN_GLOSSARY;
+
+    const form = new FormData();
+    form.append("file", new Blob([audio], { type: mime }), `audio.${extFor(mime)}`);
+    form.append("model", this.model);
+    // Whisper `prompt` biases the model toward these spellings.
+    form.append(
+      "prompt",
+      `Field service notes for CT scanner repair. Likely terms: ${keywords.join(", ")}.`,
+    );
+    form.append("response_format", "verbose_json");
+
+    const res = await fetch("https://api.openai.com/v1/audio/transcriptions", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${this.apiKey}` },
+      body: form,
+    });
+
+    if (!res.ok) {
+      const detail = await res.text().catch(() => "");
+      throw new Error(`OpenAI transcription error ${res.status}: ${detail.slice(0, 300)}`);
+    }
+
+    const json = (await res.json()) as { text?: string; duration?: number };
+    return {
+      transcript: (json.text ?? "").trim(),
+      confidence: null, // Whisper API does not return a clean confidence score
+      durationSeconds: typeof json.duration === "number" ? json.duration : null,
+      provider: `openai:${this.model}`,
+    };
+  }
+}
+
+/**
+ * Deepgram transcriber with keyword boosting (alternative engine). Returns a
+ * per-utterance confidence score, which OpenAI does not.
  */
 class DeepgramTranscriber implements Transcriber {
   constructor(private apiKey: string) {}
@@ -43,7 +99,6 @@ class DeepgramTranscriber implements Transcriber {
       smart_format: "true",
       punctuate: "true",
     });
-    // Boost each glossary term. (keyword=term:intensity)
     for (const k of keywords) params.append("keywords", `${k}:2`);
 
     const res = await fetch(`https://api.deepgram.com/v1/listen?${params}`, {
@@ -88,10 +143,19 @@ class StubTranscriber implements Transcriber {
   }
 }
 
-/** Resolve the configured transcriber. */
+/**
+ * Resolve the configured transcriber. Preference order:
+ *   1. OpenAI Whisper   (OPENAI_API_KEY)   — primary
+ *   2. Deepgram          (DEEPGRAM_API_KEY) — alternative
+ *   3. Stub              (no key)           — dev fallback
+ */
 export function getTranscriber(): Transcriber {
-  const key = process.env.DEEPGRAM_API_KEY;
-  if (key) return new DeepgramTranscriber(key);
+  const openai = process.env.OPENAI_API_KEY;
+  if (openai) {
+    return new OpenAITranscriber(openai, process.env.OPENAI_TRANSCRIBE_MODEL || "whisper-1");
+  }
+  const deepgram = process.env.DEEPGRAM_API_KEY;
+  if (deepgram) return new DeepgramTranscriber(deepgram);
   return new StubTranscriber();
 }
 
