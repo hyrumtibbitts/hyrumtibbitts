@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+/*
+ * Field Service Voice Capture — design tokens
+ * Warm, non-monochrome palette: cream / peach / muted-blue.
+ * High contrast and large hit areas for glove-and-basement field use.
+ */
+@theme {
+  --color-cream: #fbf5ec;
+  --color-cream-deep: #f3e9d8;
+  --color-card: #ffffff;
+
+  --color-ink: #2b2a28;
+  --color-ink-soft: #6b655d;
+  --color-line: #e7ddca;
+
+  /* Peach / coral — primary action + record target */
+  --color-peach: #ef7d57;
+  --color-peach-dark: #d9603a;
+  --color-peach-soft: #fbe3d6;
+
+  /* Muted blue — secondary accents, links, info */
+  --color-blue: #4f7a96;
+  --color-blue-dark: #3d637b;
+  --color-blue-soft: #e1ecf1;
+
+  --color-flag: #c9971f;
+  --color-flag-soft: #fbf0d2;
+
+  --color-good: #4f8a5b;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 1rem;
+}
+
+html,
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Keep field screens from bouncing / selecting on long press */
+.field-surface {
+  user-select: none;
+  overscroll-behavior: none;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 125, 87, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 28px rgba(239, 125, 87, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 125, 87, 0);
+  }
+}
+
+.recording-pulse {
+  animation: pulse-ring 1.6s ease-out infinite;
+}
